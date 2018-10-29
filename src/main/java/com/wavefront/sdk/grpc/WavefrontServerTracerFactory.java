@@ -161,6 +161,7 @@ public class WavefrontServerTracerFactory extends ServerStreamTracer.Factory {
         put(SHARD_TAG_KEY, applicationTags.getShard() == null ? NULL_TAG_VAL :
             applicationTags.getShard());
         put(GRPC_SERVICE_TAG_KEY, grpcService);
+        put("grpc.method", methodName);
       }};
       this.overallAggregatedPerSourceTags = ImmutableMap.<String, String>builder().
           put(CLUSTER_TAG_KEY, applicationTags.getCluster() == null ? NULL_TAG_VAL :
